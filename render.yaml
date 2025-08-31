@@ -1,10 +1,11 @@
 services:
   - type: web
     name: expensetracker-backend
-    env: java
+    env: docker
     plan: free
     buildCommand: ./mvnw clean package -DskipTests
     startCommand: java -jar target/*.jar
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: DB_URL
         value: jdbc:mysql://<your-db-host>:3306/budget_db
