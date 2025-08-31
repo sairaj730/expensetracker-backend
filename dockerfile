@@ -1,17 +1,12 @@
-# Use official Java runtime as base image
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+# Use Maven to build the application
+FROM maven:3.8.6-openjdk-17 AS build
 WORKDIR /app
-
-# Copy project files
 COPY . .
+RUN mvn clean package -DskipTests
 
-# Make mvnw executable
-RUN chmod +x mvnw
-
-# Build the project
-RUN ./mvnw clean package -DskipTests
-
-# Run the JAR
-CMD ["java", "-jar", "target/*.jar"]
+# Run the built JAR with Java
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
