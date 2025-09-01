@@ -3,8 +3,6 @@ services:
     name: expensetracker-backend
     env: docker
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar app.jar
     dockerfilePath: ./Dockerfile
     envVars:
       - key: DB_URL
