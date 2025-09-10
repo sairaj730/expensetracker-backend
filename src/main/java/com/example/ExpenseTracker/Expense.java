@@ -1,3 +1,5 @@
+// This file defines the Expense object. It tells us what an expense is and what information it holds, like the category, amount, and date.
+
 package com.example.ExpenseTracker;
 
 import jakarta.persistence.*;
@@ -21,7 +23,7 @@ public class Expense {
     @Column(nullable = false)
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER) // Changed from LAZY to EAGER
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 

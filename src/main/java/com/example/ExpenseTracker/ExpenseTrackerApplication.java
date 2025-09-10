@@ -1,3 +1,5 @@
+// This is the main file that starts the entire backend application.
+
 package com.example.ExpenseTracker;
 
 import org.springframework.boot.SpringApplication;

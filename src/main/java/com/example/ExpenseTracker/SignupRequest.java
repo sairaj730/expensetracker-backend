@@ -1,11 +1,31 @@
+// This file defines the object used for signup requests. It specifies what information is needed to create a new user account.
+
 package com.example.ExpenseTracker;
 
 public class SignupRequest {
 
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
 
     // Getters and Setters
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getEmail() {
         return email;
     }

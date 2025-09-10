@@ -1,3 +1,5 @@
+// This file defines the object used for login requests. It specifies that a login request must contain an email and a password.
+
 package com.example.ExpenseTracker;
 
 public class LoginRequest {
